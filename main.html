@@ -1,61 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Promise Chaining</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise Chaining</title>
 </head>
 <body>
-  <input type="number" id="ip">
-  <button id="btn">Calculate</button>
-  <div id="output"></div>
+    <input type="number" id="ip">
+    <button id="btn">Calculate</button>
+    <div id="output"></div>
 
-  <script>
-    document.getElementById('btn').addEventListener('click', () => {
-      const inputNumber = document.getElementById('ip').value;
-      
-      // Create a promise that resolves after 2 seconds with the input number
-      const promise1 = new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve(inputNumber);
-        }, 2000);
-      });
-
-      // Chain promises to perform operations
-      promise1.then((number) => {
-        document.getElementById('output').innerText = `Result: ${number}`;
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve(number * 2);
-          }, 1000);
-        });
-      }).then((number) => {
-        document.getElementById('output').innerText = `Result: ${number}`;
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve(number - 3);
-          }, 1000);
-        });
-      }).then((number) => {
-        document.getElementById('output').innerText = `Result: ${number}`;
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve(number / 2);
-          }, 1000);
-        });
-      }).then((number) => {
-        document.getElementById('output').innerText = `Result: ${number}`;
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve(number + 10);
-          }, 1000);
-        });
-      }).then((number) => {
-        document.getElementById('output').innerText = `Final Result: ${number}`;
-      }).catch((error) => {
-        console.error('Error:', error);
-      });
-    });
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
